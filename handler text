@@ -1,0 +1,14 @@
+from telegram.ext import MessageHandler, filters
+
+async def reply_any(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(f"Kamu bilang: {update.message.text}")
+
+def main():
+    app = Application.builder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("help", help))
+    app.add_handler(CommandHandler("echo", echo))
+    app.add_handler(CommandHandler("photo", photo))
+    app.add_handler(CommandHandler("button", button))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply_any))
+    app.run_polling()
