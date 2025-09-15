@@ -1,0 +1,7 @@
+# Telegram Bot Demo
+
+## Cara Jalankan
+1. Clone repo
+2. Install dependency:
+   ```bash
+   pip install -r requirements.txt
