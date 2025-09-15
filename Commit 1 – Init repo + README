@@ -1,0 +1,4 @@
+echo "# Telegram Bot Demo" > README.md
+git init
+git add README.md
+git commit -m "init: add README"
