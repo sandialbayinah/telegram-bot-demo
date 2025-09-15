@@ -1,0 +1,14 @@
+from telegram import InputFile
+
+async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_photo("https://picsum.photos/300")
+
+def main():
+    app = Application.builder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("help", help))
+    app.add_handler(CommandHandler("echo", echo))
+    app.add_handler(CommandHandler("photo", photo))
+    app.run_polling()
+git add main.py
+git commit -m "feat: add /photo command"
