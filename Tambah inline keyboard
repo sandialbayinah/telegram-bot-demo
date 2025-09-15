@@ -1,0 +1,14 @@
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+
+async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    keyboard = [[InlineKeyboardButton("GitHub", url="https://github.com")]]
+    await update.message.reply_text("Pilih tombol:", reply_markup=InlineKeyboardMarkup(keyboard))
+
+def main():
+    app = Application.builder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("help", help))
+    app.add_handler(CommandHandler("echo", echo))
+    app.add_handler(CommandHandler("photo", photo))
+    app.add_handler(CommandHandler("button", button))
+    app.run_polling()
